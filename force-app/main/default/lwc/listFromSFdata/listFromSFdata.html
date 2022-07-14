@@ -1,0 +1,13 @@
+<template>
+    <lightning-button variant = "brand" 
+                      label ={showcontacts}
+                      onclick={handleClick}>
+    </lightning-button>
+    <template if:true={isvisible}>
+    <lightning-datatable data={data}
+                         columns={columns}
+                         key-field = "id"
+                         onrowselection ={getrow}>
+    </lightning-datatable>
+    </template>
+</template>
