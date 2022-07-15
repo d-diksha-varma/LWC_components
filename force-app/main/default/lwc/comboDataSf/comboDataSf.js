@@ -13,20 +13,19 @@ export default class ComboDataSf extends LightningElement {
         //const myvar
         getAccounts()
         .then(result => {
-           const diksha = JSON.parse(JSON.stringify(result));
-            console.log("diksha=======>" , diksha);
+            console.log("result=======>"+JSON.stringify(result));
             let arrFun = [];
-            for (let i = 0 ; i<= result.length ; i++){
-                arrFun.push({ label : diksha[i].Name , value : diksha[i].Id});
+
+            for (var i=0 ; i<result.length ;i++){
+                arrFun.push({ label:result[i].Name , value:result[i].Id});
             }
             this.accOption = arrFun;
-            console.log("diksha varma=======>" , this.accOption );
-            console.log("ajay verma=======>" , arrFun );
+            console.log("accOption=======>:"+JSON.stringify(this.accOption));
+            console.log("arrFun=======>:"+JSON.stringify( arrFun));
 
         })
-        
         .catch(error => {
-            this.error = error;
+            console.error("error=======>"+JSON.stringify(error));   
         });
     }
 
